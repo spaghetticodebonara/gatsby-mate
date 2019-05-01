@@ -102,12 +102,12 @@ const Writing = () => (
   <StaticQuery
     query={graphql`
       query MediumPostQuery {
-        isMediumUserDefine: __type(
-          name: "contentfulAboutMediumUserQueryString_2"
-        ) {
-          name
+        isMediumUserDefine: allMediumUser {
+          nodes {
+            username
+          }
         }
-        allMediumPost(limit: 6, sort: { fields: createdAt, order: DESC }) {
+        allMediumPost(limit: 28, sort: { fields: createdAt, order: DESC }) {
           edges {
             node {
               id

@@ -68,7 +68,7 @@ const LandingPage = () => (
               fontSize={[4, 5, 7]}
               mb={[3, 4, 5]}
             >
-              {`Welcome to \n ${name}!`}
+              {`${name} Blog`}
             </Heading>
 
             <Heading
