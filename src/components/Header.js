@@ -6,8 +6,20 @@ import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
 import RouteLink from './RouteLink';
 import Logo from './Logo/Portfolio.svg';
+import { navigate } from 'gatsby';
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
+
+function addHeader(name, path) {
+  const obj = {};
+  const blog = {};
+  blog.onClick = function onClick() {
+    navigate(path);
+  };
+  blog.selected = false;
+  obj.blog = blog;
+  return obj;
+}
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
@@ -18,8 +30,10 @@ const HeaderContainer = styled(Headroom)`
   width: 100%;
 `;
 
-const formatLinks = allLinks =>
-  Object.entries(allLinks).reduce(
+const formatLinks = allLinks => {
+  const obj = addHeader('blog', '/blog');
+  allLinks = Object.assign(allLinks, obj);
+  return Object.entries(allLinks).reduce(
     (acc, [key, value]) => {
       const isHome = key === 'home';
       return isHome
@@ -34,6 +48,7 @@ const formatLinks = allLinks =>
     },
     { links: [], home: null },
   );
+};
 
 const Header = () => (
   <HeaderContainer>
