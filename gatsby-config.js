@@ -33,6 +33,7 @@ const plugins = [
   },
   'gatsby-transformer-remark',
   'gatsby-plugin-offline',
+  'gatsby-disable-404',
 ];
 
 module.exports = client.getEntries().then(entries => {
