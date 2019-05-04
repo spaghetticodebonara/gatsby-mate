@@ -31,7 +31,7 @@ const HeaderContainer = styled(Headroom)`
 `;
 
 const formatLinks = allLinks => {
-  const obj = addHeader('blog', '/blog');
+  const obj = addHeader('blog', '/docs');
   allLinks = Object.assign(allLinks, obj);
   return Object.entries(allLinks).reduce(
     (acc, [key, value]) => {
